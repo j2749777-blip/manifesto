@@ -52,9 +52,18 @@ a {
 button {
   font: inherit;
   cursor: pointer;
-  /* Better touch targets on mobile */
-  min-height: 44px;
-  min-width: 44px;
+}
+
+@media (max-width: 768px) {
+  .nav a,
+  .nav button,
+  .mobileMenuBtn,
+  .helpBtn,
+  .reportBtn,
+  .searchBtn,
+  .reportCardBtn {
+    min-height: 44px;
+  }
 }
 
 /* Mobile responsive base styles */
@@ -674,10 +683,6 @@ button {
 
 
 @media (max-width: 1200px) {
-  .nav {
-    display: none;
-  }
-
   .heroGrid,
   .contentGrid {
     grid-template-columns: 1fr;

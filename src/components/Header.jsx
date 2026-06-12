@@ -170,8 +170,8 @@ export default function Header() {
       z-index: 2;
     }
     
-    /* Mobile responsive styles */
-    @media (max-width: 768px) {
+    /* Mobile & tablet responsive styles */
+    @media (max-width: 1024px) {
       .topbarInner {
         min-height: 48px;
         padding: 8px 0;
@@ -228,10 +228,17 @@ export default function Header() {
       .mobileMenuBtn {
         display: flex;
         align-items: center;
+        order: 2;
+        margin-left: auto;
       }
       
       .topActions {
         gap: 0;
+        order: 3;
+      }
+
+      .logo {
+        order: 1;
       }
       
       .helpBtn, .reportBtn {

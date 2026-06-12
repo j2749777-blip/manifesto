@@ -1778,11 +1778,109 @@ export default function ManifestoMockup() {
           .sortBlock { justify-content: space-between; }
           .politicianGrid, .politicianGridCompact { grid-template-columns: repeat(2,minmax(0,1fr)); }
         }
+        .heroMetricsMobile { display: none; }
         @media (max-width: 768px) {
+          .page { height: auto; min-height: 100vh; min-height: 100dvh; overflow-x: hidden; }
           .container { width: min(100% - 24px, 1450px); }
           .topbarInner { height: auto; padding: 12px 0; flex-wrap: wrap; }
           .logo { font-size: 28px; }
           .topActions { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+          .heroGrid { padding: 24px 0 20px; min-height: auto; gap: 12px; }
+          .heroTitle { white-space: normal; height: auto; min-height: 2.4em; }
+          .typingText { white-space: pre-line; word-break: break-word; }
+          .heroLeft h1 { font-size: 32px; }
+          .heroLeft p { font-size: 12px; }
+          .heroRight { display: none; }
+          .heroMetricsMobile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 4px; }
+          .heroMetricsMobile .metric { min-height: 72px; padding: 8px 6px; }
+          .heroMetricsMobile .metricIcon { width: 28px; height: 28px; margin-bottom: 4px; }
+          .heroMetricsMobile .metricValue { font-size: 18px; }
+          .heroMetricsMobile .metricLabel { font-size: 9px; line-height: 1.2; }
+          .searchBar { flex-direction: column; align-items: stretch; }
+          .searchBtn { width: 100%; }
+          .contentGrid { grid-template-columns: 1fr; gap: 16px; }
+          .politicianGrid { grid-template-columns: 1fr; gap: 10px; }
+          .sidebarCard { margin-top: 8px; }
+          .filterRow { flex-direction: column; align-items: stretch; gap: 10px; }
+          .filters { grid-template-columns: 1fr; }
+          .filters[style] { display: grid !important; grid-template-columns: 1fr !important; }
+          .filterPill { min-width: 0; width: 100%; justify-content: flex-start; min-height: 36px; }
+          .sortBlock { flex: 0 0 auto; width: 100%; max-width: 100%; justify-content: space-between; }
+          .sortBtn { max-width: 100%; min-height: auto; min-width: auto; }
+          .viewToggle button { min-height: 24px; min-width: 24px; }
+          .navTab, .promiseItem, .backLink { min-height: auto; min-width: auto; }
+          .pageCards { grid-template-columns: 1fr; gap: 10px; }
+          .pageTitle { font-size: 22px; }
+          .profileContainer { padding: 12px 0; max-height: none; overflow: visible; }
+          .profileHeaderMetricsRow { flex-direction: column; gap: 8px; }
+          .profileHeaderBox { padding: 12px; }
+          .metricsBox { padding: 10px; }
+          .metricsRow { flex-wrap: wrap; gap: 6px; }
+          .metricSmall { min-width: 60px; padding: 6px 8px; }
+          .navTabs { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+          .navTabs::-webkit-scrollbar { display: none; }
+          .navTab { padding: 10px 14px; font-size: 13px; }
+          .layoutGrid { grid-template-columns: 1fr; height: auto; min-height: auto; }
+          .layoutLeft { gap: 8px; }
+          .layoutRight { max-height: none; }
+          .politicianLayoutWrap { grid-template-columns: 1fr; }
+          .politicianLayout { grid-template-columns: 1fr; }
+          .politicianGridCompact { grid-template-columns: 1fr !important; }
+          .promiseDetailTitle { font-size: 16px; }
+          .promisesPageGrid { grid-template-columns: 1fr !important; }
+          .evidenceGrid { grid-template-columns: 1fr; }
+          .brokenItem { gap: 8px; padding: 8px 0; }
+          .brokenLeft { min-width: 0; flex: 1; }
+          .brokenLeft .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+          .detailStats { grid-template-columns: 1fr; }
+          .reportCard { display: block; margin-top: 12px; }
+          .aboutSection { padding: 20px !important; margin-bottom: 16px !important; }
+          .aboutMissionTitle { font-size: 24px !important; }
+          .aboutSectionTitle { font-size: 20px !important; }
+          .aboutWhyGrid { grid-template-columns: 1fr !important; gap: 16px !important; }
+        }
+        @media (max-width: 480px) {
+          .container { width: calc(100% - 16px); }
+          .heroGrid { padding: 16px 0; }
+          .heroLeft h1 { font-size: 26px; letter-spacing: -0.05em; }
+          .heroLeft p { font-size: 11px; }
+          .heroMetricsMobile { grid-template-columns: 1fr; }
+          .heroMetricsMobile .metric { min-height: 64px; flex-direction: row; text-align: left; display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
+          .heroMetricsMobile .metricIcon { margin: 0; flex-shrink: 0; }
+          .heroMetricsMobile .metricValue { font-size: 20px; }
+          .progressLegend { flex-wrap: wrap; gap: 8px; }
+          .aboutSection { padding: 16px !important; }
+          .aboutMissionTitle { font-size: 20px !important; }
+          .card { padding: 8px; border-radius: 10px; }
+          .cardTop { gap: 6px; }
+          .avatarBox { width: 30px; height: 30px; border-radius: 6px; }
+          .name { font-size: 12px; }
+          .statsRow { gap: 0; margin-top: 4px; }
+          .profileHeaderBox { gap: 8px; }
+          .profileAvatar { width: 40px; height: 40px; font-size: 16px; }
+          .profileName h2 { font-size: 13px; }
+          .navTab { padding: 8px 10px; font-size: 12px; }
+          .metricSmallValue { font-size: 14px; }
+          .metricSmallLabel { font-size: 8px; }
+          .promiseItem { padding: 7px 8px; gap: 6px; }
+          .promiseItemTitle { font-size: 11px; }
+          .promiseItemMeta { font-size: 9px; }
+          .promiseDetailCard { padding: 12px; }
+          .promiseDetailTitle { font-size: 14px; }
+          .promiseSectionTitle { font-size: 10px; }
+          .promiseSection p { font-size: 11px; }
+          .sourceList a { font-size: 11px; }
+          .backLink { font-size: 10px; padding: 6px 0; }
+          .pageShell { max-height: none; overflow: visible; padding: 12px 0; }
+          .pageTitle { font-size: 20px; }
+          .pageCard { padding: 8px; }
+          .pageCard h3 { font-size: 12px; }
+          .pageCard p { font-size: 10px; }
+          .filterSelect { min-width: 100%; font-size: 10px; }
+          .promiseGridCard { padding: 10px; }
+          .promiseCardTitle { font-size: 12px; }
+          .promiseCardMeta { font-size: 9px; }
+        }
       `}</style>
 
       <div className="scaledApp">
@@ -1796,6 +1894,11 @@ export default function ManifestoMockup() {
                   <div className="searchBar">
                     <div className="searchInput"><Icon name="search" size={14} /><span>Search for a politician by name...</span></div>
                     <button className="searchBtn" type="button">Search</button>
+                  </div>
+                  <div className="heroMetricsMobile">
+                    <Metric icon="file" value="664" label="Promises tracked" />
+                    <Metric icon="users" value="6" label="Politicians tracked" />
+                    <Metric icon="trend" value="1,520" label="Citizens engaged" />
                   </div>
                 </div>
                 <div className="heroRight">
@@ -1862,9 +1965,9 @@ export default function ManifestoMockup() {
             </div>
 
             {/* Section 1: Our Mission - Hero */}
-            <section style={{ background: "#fff", border: "1px solid #ddd5ca", borderRadius: "12px", padding: "32px", marginBottom: "24px", boxShadow: "0 1px 0 rgba(0,0,0,.03)" }}>
+            <section className="aboutSection" style={{ background: "#fff", border: "1px solid #ddd5ca", borderRadius: "12px", padding: "32px", marginBottom: "24px", boxShadow: "0 1px 0 rgba(0,0,0,.03)" }}>
               <div style={{ maxWidth: "680px" }}>
-                <h2 style={{ margin: "0 0 16px 0", fontSize: "32px", fontWeight: 700, fontFamily: "'Anthropic Serif', Georgia, serif", color: "#1c1a17", lineHeight: 1.1, letterSpacing: "-.05em" }}>
+                <h2 className="aboutMissionTitle" style={{ margin: "0 0 16px 0", fontSize: "32px", fontWeight: 700, fontFamily: "'Anthropic Serif', Georgia, serif", color: "#1c1a17", lineHeight: 1.1, letterSpacing: "-.05em" }}>
                   Our Mission
                 </h2>
                 <p style={{ margin: "0 0 16px 0", fontSize: "14px", color: "#4f4a44", lineHeight: 1.6, fontFamily: "'Anthropic Sans', system-ui, sans-serif" }}>
@@ -1897,8 +2000,8 @@ export default function ManifestoMockup() {
             </section>
 
             {/* Section 2: How We Work */}
-            <section style={{ background: "#fff", border: "1px solid #ddd5ca", borderRadius: "12px", padding: "32px", marginBottom: "24px", boxShadow: "0 1px 0 rgba(0,0,0,.03)" }}>
-              <h2 style={{ margin: "0 0 24px 0", fontSize: "24px", fontWeight: 700, fontFamily: "'Anthropic Serif', Georgia, serif", color: "#1c1a17", letterSpacing: "-.05em" }}>
+            <section className="aboutSection" style={{ background: "#fff", border: "1px solid #ddd5ca", borderRadius: "12px", padding: "32px", marginBottom: "24px", boxShadow: "0 1px 0 rgba(0,0,0,.03)" }}>
+              <h2 className="aboutSectionTitle" style={{ margin: "0 0 24px 0", fontSize: "24px", fontWeight: 700, fontFamily: "'Anthropic Serif', Georgia, serif", color: "#1c1a17", letterSpacing: "-.05em" }}>
                 How We Work
               </h2>
               
@@ -1962,12 +2065,12 @@ export default function ManifestoMockup() {
             </section>
 
             {/* Section 3: Why It Matters */}
-            <section style={{ background: "#fff", border: "1px solid #ddd5ca", borderRadius: "12px", padding: "32px", marginBottom: "24px", boxShadow: "0 1px 0 rgba(0,0,0,.03)" }}>
-              <h2 style={{ margin: "0 0 24px 0", fontSize: "24px", fontWeight: 700, fontFamily: "'Anthropic Serif', Georgia, serif", color: "#1c1a17", letterSpacing: "-.05em" }}>
+            <section className="aboutSection" style={{ background: "#fff", border: "1px solid #ddd5ca", borderRadius: "12px", padding: "32px", marginBottom: "24px", boxShadow: "0 1px 0 rgba(0,0,0,.03)" }}>
+              <h2 className="aboutSectionTitle" style={{ margin: "0 0 24px 0", fontSize: "24px", fontWeight: 700, fontFamily: "'Anthropic Serif', Georgia, serif", color: "#1c1a17", letterSpacing: "-.05em" }}>
                 Why It Matters
               </h2>
               
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "24px" }}>
+              <div className="aboutWhyGrid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "24px" }}>
                 <div>
                   <h3 style={{ margin: "0 0 8px 0", fontSize: "13px", fontWeight: 700, color: "#1c1a17" }}>
                     ✓ Strengthen Accountability
