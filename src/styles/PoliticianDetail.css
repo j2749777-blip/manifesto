@@ -8,6 +8,28 @@
   min-height: 100vh;
 }
 
+@media (max-width: 1024px) {
+  .politician-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .politician-detail-layout {
+    gap: 20px;
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .politician-detail-layout {
+    gap: 16px;
+    padding: 16px 12px;
+  }
+}
+
 .detail-left-panel {
   display: flex;
   flex-direction: column;
@@ -40,6 +62,13 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+@media (max-width: 480px) {
+  .profile-header {
+    gap: 12px;
+    padding-bottom: 16px;
+  }
+}
+
 .profile-avatar {
   width: 80px;
   height: 80px;
@@ -54,6 +83,14 @@
   flex-shrink: 0;
 }
 
+@media (max-width: 480px) {
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
 .profile-copy {
   display: flex;
   flex-direction: column;
@@ -66,12 +103,19 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .profile-name-row h2 {
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
+}
+
+@media (max-width: 480px) {
+  .profile-name-row h2 {
+    font-size: 1.2rem;
+  }
 }
 
 .profile-badge {
@@ -107,6 +151,14 @@
   border: 1px solid #e0e0e0;
 }
 
+@media (max-width: 480px) {
+  .detail-stats {
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
 .metric {
   display: flex;
   flex-direction: column;
@@ -115,19 +167,27 @@
   gap: 8px;
 }
 
-.metricIcon {
-  color: #667eea;
-}
-
 .metricValue {
   font-size: 1.3rem;
   font-weight: 700;
   color: #1a1a1a;
 }
 
+@media (max-width: 480px) {
+  .metricValue {
+    font-size: 1rem;
+  }
+}
+
 .metricLabel {
   font-size: 0.75rem;
   color: #999;
+}
+
+@media (max-width: 480px) {
+  .metricLabel {
+    font-size: 0.7rem;
+  }
 }
 
 .detail-progress {

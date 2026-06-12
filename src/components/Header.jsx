@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -38,12 +39,15 @@ export default function Header() {
     } else if (page === "about") {
       navigate("/about");
     }
+    setMobileMenuOpen(false);
   };
 
   const Icon = ({ name, size = 16 }) => {
     const icons = {
       help: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>,
       shield: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+      menu: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+      close: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
     };
     return icons[name] || null;
   };
@@ -54,6 +58,9 @@ export default function Header() {
       border-bottom: 1px solid var(--line);
       background: rgba(250, 248, 244, 0.96);
       backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .topbarInner {
       position: relative;
@@ -154,6 +161,111 @@ export default function Header() {
       color: white;
       border-radius: 2px;
     }
+    .mobileMenuBtn {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 2;
+    }
+    
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      .topbarInner {
+        min-height: 48px;
+        padding: 8px 0;
+        gap: 8px;
+      }
+      
+      .logo {
+        font-size: 20px;
+      }
+      
+      .nav {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 48px;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        border-bottom: 1px solid var(--line);
+        padding: 16px;
+        gap: 8px;
+        z-index: 50;
+        transform: none;
+        text-align: left;
+      }
+      
+      .nav.open {
+        display: flex;
+      }
+      
+      .nav a, .nav button {
+        padding: 12px 16px;
+        font-size: 14px;
+        width: 100%;
+        text-align: left;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+      
+      .nav a:hover, .nav button:hover {
+        background: #f0f0f0;
+      }
+      
+      .nav button.active::after, .nav a.active::after {
+        display: none;
+      }
+      
+      .nav a.active, .nav button.active {
+        background: #efe9df;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      
+      .mobileMenuBtn {
+        display: flex;
+        align-items: center;
+      }
+      
+      .topActions {
+        gap: 0;
+      }
+      
+      .helpBtn, .reportBtn {
+        font-size: 10px;
+        gap: 2px;
+        padding: 4px 8px;
+      }
+      
+      .helpBtn span, .reportBtn span {
+        display: none;
+      }
+      
+      .helpBtn, .reportBtn {
+        padding: 8px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .topbarInner {
+        min-height: 44px;
+      }
+      
+      .logo {
+        font-size: 18px;
+      }
+      
+      .topActions {
+        gap: 0;
+      }
+      
+      .helpBtn, .reportBtn {
+        padding: 6px;
+      }
+    }
   `;
 
   return (
@@ -162,13 +274,14 @@ export default function Header() {
       <header className="topbar">
         <div className="container topbarInner">
           <div className="logo">Manifesto</div>
-          <nav className="nav">
+          <nav className={`nav ${mobileMenuOpen ? 'open' : ''}`}>
             {['dashboard', 'politicians', 'promises', 'insights', 'reports', 'about'].map((page) => (
               page === 'politicians' ? (
                 <Link
                   key={page}
                   to="/politicians"
                   className={activePage === page ? 'active' : ''}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {page.charAt(0).toUpperCase() + page.slice(1)}
                 </Link>
@@ -184,12 +297,20 @@ export default function Header() {
               )
             ))}
           </nav>
+          <button 
+            className="mobileMenuBtn" 
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <Icon name={mobileMenuOpen ? 'close' : 'menu'} size={20} />
+          </button>
           <div className="topActions">
-            <button className="helpBtn" type="button">
+            <button className="helpBtn" type="button" title="How it works">
               <Icon name="help" size={14} />
               <span>How it works</span>
             </button>
-            <button className="reportBtn" type="button">
+            <button className="reportBtn" type="button" title="Submit Anonymous Report">
               <span className="reportBadge">
                 <Icon name="shield" size={11} />
               </span>

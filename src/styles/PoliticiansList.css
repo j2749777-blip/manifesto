@@ -16,6 +16,18 @@
   color: #1a1a1a;
 }
 
+@media (max-width: 768px) {
+  .politicians-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .politicians-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
 .politicians-header p {
   font-size: 1.1rem;
   color: #666;
@@ -25,6 +37,20 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 25px;
+}
+
+@media (max-width: 1024px) {
+  .politicians-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .politicians-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 .politician-card {

@@ -10,8 +10,26 @@
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .reports-container {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reports-container {
+    padding: 16px 12px;
+  }
+}
+
 .reports-header {
   margin-bottom: 50px;
+}
+
+@media (max-width: 480px) {
+  .reports-header {
+    margin-bottom: 32px;
+  }
 }
 
 .reports-header h1 {
@@ -21,6 +39,18 @@
   color: #1a1a1a;
 }
 
+@media (max-width: 768px) {
+  .reports-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reports-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
 .reports-header p {
   font-size: 1.1rem;
   color: #666;
@@ -28,9 +58,21 @@
   line-height: 1.4;
 }
 
+@media (max-width: 480px) {
+  .reports-header p {
+    font-size: 0.95rem;
+  }
+}
+
 /* Section Styles */
 .reports-section {
   margin-bottom: 60px;
+}
+
+@media (max-width: 480px) {
+  .reports-section {
+    margin-bottom: 40px;
+  }
 }
 
 .reports-section-header {
@@ -38,6 +80,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .reports-section-header h2 {
@@ -45,6 +88,12 @@
   font-weight: 700;
   margin: 0;
   color: #1a1a1a;
+}
+
+@media (max-width: 480px) {
+  .reports-section-header h2 {
+    font-size: 1.1rem;
+  }
 }
 
 .section-count {
@@ -56,11 +105,25 @@
   font-weight: 600;
 }
 
+@media (max-width: 480px) {
+  .section-count {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
+
 .section-description {
   font-size: 13px;
   color: #67615a;
   margin-bottom: 16px;
   line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .section-description {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
 }
 
 /* Filters */
@@ -69,6 +132,12 @@
   gap: 10px;
   margin-bottom: 16px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .reports-filters {
+    gap: 8px;
+  }
 }
 
 .filter-group {
@@ -84,6 +153,12 @@
   margin-bottom: 4px;
 }
 
+@media (max-width: 480px) {
+  .filter-group label {
+    font-size: 9px;
+  }
+}
+
 .filter-group select {
   padding: 6px 8px;
   border: 1px solid #ddd5ca;
@@ -91,6 +166,14 @@
   font-size: 11px;
   background-color: #fff;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .filter-group select {
+    padding: 6px 6px;
+    font-size: 10px;
+    min-width: 120px;
+  }
 }
 
 /* Cards */
@@ -105,9 +188,23 @@
   cursor: pointer;
 }
 
+@media (max-width: 480px) {
+  .report-card {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+}
+
 .report-card:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,.08);
   border-color: #d0ccc0;
+}
+
+@media (max-width: 480px) {
+  .report-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
 }
 
 .report-card-header {
@@ -115,10 +212,18 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .report-card-header {
+    gap: 8px;
+  }
 }
 
 .report-card-content {
   flex: 1;
+  min-width: 0;
 }
 
 .report-card-badges {
@@ -127,6 +232,13 @@
   align-items: center;
   margin-bottom: 6px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .report-card-badges {
+    gap: 6px;
+    margin-bottom: 4px;
+  }
 }
 
 .category-badge {
@@ -138,6 +250,13 @@
   border-radius: 4px;
 }
 
+@media (max-width: 480px) {
+  .category-badge {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+}
+
 .status-badge {
   display: inline-block;
   padding: 4px 10px;
@@ -145,6 +264,13 @@
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .status-badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
 }
 
 .status-badge.verified {
