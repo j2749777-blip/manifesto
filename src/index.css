@@ -819,3 +819,13 @@ button {
   border-top: 1px solid #f4efe6;
   padding-top: 8px;
 }
+
+/* Desktop label and mobile label helpers */
+.mobileLabel,
+.sortLabelMobile {
+  display: none;
+}
+.desktopLabel,
+.sortLabelDesktop {
+  display: inline;
+}

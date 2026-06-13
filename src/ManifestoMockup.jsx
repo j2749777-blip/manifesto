@@ -339,11 +339,12 @@ function Metric({ icon, value, label }) {
   );
 }
 
-function FilterPill({ icon, label }) {
+function FilterPill({ icon, label, mobileLabel }) {
   return (
     <button className="filterPill" type="button">
       <span className="pillIcon"><Icon name={icon} size={13} /></span>
-      <span>{label}</span>
+      <span className="desktopLabel">{label}</span>
+      {mobileLabel && <span className="mobileLabel">{mobileLabel}</span>}
       <span className="chevron">⌄</span>
     </button>
   );
@@ -1785,20 +1786,22 @@ export default function ManifestoMockup() {
           .topbarInner { height: auto; padding: 12px 0; flex-wrap: wrap; }
           .logo { font-size: 28px; }
           .topActions { width: 100%; justify-content: space-between; flex-wrap: wrap; }
-          .heroGrid { padding: 24px 0 20px; min-height: auto; gap: 12px; }
-          .heroTitle { white-space: normal; height: auto; min-height: 2.4em; }
-          .typingText { white-space: pre-line; word-break: break-word; }
-          .heroLeft h1 { font-size: 32px; }
-          .heroLeft p { font-size: 12px; }
+          .heroGrid { padding: 12px 0 8px; min-height: auto; gap: 4px; }
+          .heroTitle { white-space: normal; height: 66px; min-height: 66px; font-size: 28px; line-height: 1.15; margin: 0 0 4px; }
+          .typingText { white-space: pre-line; word-break: break-word; min-height: 66px; line-height: 1.15; }
+          .heroLeft h1 { font-size: 28px; }
+          .heroLeft p { font-size: 12px; margin-top: 4px; }
           .heroRight { display: none; }
-          .heroMetricsMobile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 4px; }
-          .heroMetricsMobile .metric { min-height: 72px; padding: 8px 6px; }
+          .heroMetricsMobile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 2px; }
+          .heroMetricsMobile .metric { min-height: 62px; padding: 6px 6px; }
           .heroMetricsMobile .metricIcon { width: 28px; height: 28px; margin-bottom: 4px; }
           .heroMetricsMobile .metricValue { font-size: 18px; }
           .heroMetricsMobile .metricLabel { font-size: 9px; line-height: 1.2; }
-          .searchBar { flex-direction: column; align-items: stretch; }
-          .searchBtn { width: 100%; }
-          .contentGrid { grid-template-columns: 1fr; gap: 16px; }
+          .searchBar { flex-direction: row; align-items: center; gap: 6px; padding: 4px; }
+          .searchBtn { width: auto; }
+          .contentGrid { display: flex; flex-direction: column; gap: 16px; }
+          .contentGrid > aside { order: -1; }
+          .contentGrid > section { order: 0; }
           .politicianGrid { grid-template-columns: 1fr; gap: 10px; }
           .sidebarCard { margin-top: 8px; }
           .filterRow { flex-direction: column; align-items: stretch; gap: 10px; }
@@ -1841,13 +1844,14 @@ export default function ManifestoMockup() {
         }
         @media (max-width: 480px) {
           .container { width: calc(100% - 16px); }
-          .heroGrid { padding: 16px 0; }
-          .heroLeft h1 { font-size: 26px; letter-spacing: -0.05em; }
-          .heroLeft p { font-size: 11px; }
-          .heroMetricsMobile { grid-template-columns: 1fr; }
-          .heroMetricsMobile .metric { min-height: 64px; flex-direction: row; text-align: left; display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
-          .heroMetricsMobile .metricIcon { margin: 0; flex-shrink: 0; }
-          .heroMetricsMobile .metricValue { font-size: 20px; }
+          .heroGrid { padding: 8px 0 4px; }
+          .heroLeft h1 { font-size: 28px; letter-spacing: -0.05em; }
+          .heroLeft p { font-size: 11px; margin-top: 2px; }
+          .heroMetricsMobile { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+          .heroMetricsMobile .metric { min-height: 72px; flex-direction: column; text-align: center; display: flex; align-items: center; justify-content: center; padding: 8px 4px; }
+          .heroMetricsMobile .metricIcon { width: 24px; height: 24px; margin: 0 auto 4px; flex-shrink: 0; }
+          .heroMetricsMobile .metricValue { font-size: 16px; }
+          .heroMetricsMobile .metricLabel { font-size: 8px; line-height: 1.1; }
           .progressLegend { flex-wrap: wrap; gap: 8px; }
           .aboutSection { padding: 16px !important; }
           .aboutMissionTitle { font-size: 20px !important; }
@@ -1880,6 +1884,16 @@ export default function ManifestoMockup() {
           .promiseGridCard { padding: 10px; }
           .promiseCardTitle { font-size: 12px; }
           .promiseCardMeta { font-size: 9px; }
+          .filterRow { flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; gap: 8px !important; padding-bottom: 12px !important; overflow-x: auto !important; scrollbar-width: none !important; -webkit-overflow-scrolling: touch !important; width: 100% !important; }
+          .filterRow::-webkit-scrollbar { display: none !important; }
+          .filters { display: flex !important; flex-direction: row !important; gap: 8px !important; flex-shrink: 0 !important; }
+          .filters[style] { display: flex !important; flex-direction: row !important; gap: 8px !important; flex-shrink: 0 !important; }
+          .filterPill { min-width: auto !important; width: auto !important; font-size: 11px !important; padding: 6px 10px !important; min-height: 32px !important; height: 32px !important; white-space: nowrap !important; display: inline-flex !important; align-items: center !important; gap: 4px !important; flex-shrink: 0 !important; }
+          .sortBlock { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; max-width: none !important; width: auto !important; flex-shrink: 0 !important; }
+          .sortBtn { min-width: auto !important; width: auto !important; font-size: 11px !important; padding: 6px 10px !important; min-height: 32px !important; height: 32px !important; white-space: nowrap !important; display: inline-flex !important; align-items: center !important; gap: 4px !important; flex-shrink: 0 !important; }
+          .viewToggle { display: none !important; }
+          .desktopLabel, .sortLabelDesktop { display: none !important; }
+          .mobileLabel, .sortLabelMobile { display: inline !important; }
         }
       `}</style>
 
@@ -1914,8 +1928,22 @@ export default function ManifestoMockup() {
             </section>
 
             <section className="container filterRow">
-              <div className="filters"><FilterPill icon="map" label="All Regions" /><FilterPill icon="users" label="All Parties" /><FilterPill icon="list" label="All Promise Categories" /></div>
-              <div className="sortBlock"><button className="sortBtn" type="button">Sort by: <span>Overall Progress</span> <span className="chevron">⌄</span></button><div className="viewToggle"><button className="activeView" type="button"><Icon name="grid" size={14} /></button><button type="button"><Icon name="list" size={14} /></button></div></div>
+              <div className="filters">
+                <FilterPill icon="map" label="All Regions" mobileLabel="Region" />
+                <FilterPill icon="users" label="All Parties" mobileLabel="Parties" />
+                <FilterPill icon="list" label="All Promise Categories" mobileLabel="Categories" />
+              </div>
+              <div className="sortBlock">
+                <button className="sortBtn" type="button">
+                  <span className="sortLabelDesktop">Sort by: <span>Overall Progress</span></span>
+                  <span className="sortLabelMobile">Sort</span>
+                  <span className="chevron">⌄</span>
+                </button>
+                <div className="viewToggle">
+                  <button className="activeView" type="button"><Icon name="grid" size={14} /></button>
+                  <button type="button"><Icon name="list" size={14} /></button>
+                </div>
+              </div>
             </section>
 
             <main className="container contentGrid">

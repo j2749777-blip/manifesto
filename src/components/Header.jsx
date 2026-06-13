@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileActionsOpen, setMobileActionsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -312,12 +313,12 @@ export default function Header() {
           >
             <Icon name={mobileMenuOpen ? 'close' : 'menu'} size={20} />
           </button>
-          <div className="topActions">
-            <button className="helpBtn" type="button" title="How it works">
+          <div className={`topActions ${mobileActionsOpen ? 'visible' : ''}`}>
+            <button className="helpBtn" type="button" title="How it works" onClick={() => setMobileActionsOpen(false)}>
               <Icon name="help" size={14} />
               <span>How it works</span>
             </button>
-            <button className="reportBtn" type="button" title="Submit Anonymous Report">
+            <button className="reportBtn" type="button" title="Submit Anonymous Report" onClick={() => setMobileActionsOpen(false)}>
               <span className="reportBadge">
                 <Icon name="shield" size={11} />
               </span>

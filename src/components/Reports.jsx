@@ -48,6 +48,7 @@ function StatusBadge({ status, type = "report" }) {
       fontSize: "10px",
       fontWeight: 700,
       whiteSpace: "nowrap",
+      fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     };
 
     switch(status) {
@@ -119,15 +120,16 @@ function ReportCard({ report, onExpand, expanded }) {
               padding: "2px 6px",
               borderRadius: "6px",
               textTransform: "uppercase",
-              letterSpacing: ".1em"
+              letterSpacing: ".1em",
+              fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
             }}>
               {report.category}
             </span>
           </div>
-          <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1d1915", marginBottom: "4px", lineHeight: "1.2" }}>
+          <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1d1915", marginBottom: "4px", lineHeight: "1.2", fontFamily: "'Anthropic Serif', Georgia, 'Times New Roman', serif" }}>
             {report.description}
           </p>
-          <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "#6a645d" }}>
+          <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "#6a645d", fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             <span>📅 {report.date}</span>
             <span>👤 {report.relatedPolitician}</span>
           </div>
@@ -192,14 +194,14 @@ function CaseCard({ caseData, onExpand, expanded }) {
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "10px" }}>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1d1915", marginBottom: "4px", lineHeight: "1.2" }}>
+          <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1d1915", marginBottom: "4px", lineHeight: "1.2", fontFamily: "'Anthropic Serif', Georgia, 'Times New Roman', serif" }}>
             {caseData.title}
           </p>
-          <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "#6a645d", marginBottom: "6px" }}>
+          <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "#6a645d", marginBottom: "6px", fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             <span>👤 {caseData.politician}</span>
             <span>📅 {caseData.submittedDate}</span>
           </div>
-          <div style={{ fontSize: "10px", color: "#49443f", fontStyle: "italic" }}>
+          <div style={{ fontSize: "10px", color: "#49443f", fontStyle: "italic", fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             {caseData.lastFollowUpActivity}
           </div>
         </div>
@@ -281,14 +283,14 @@ function TransparencyCard({ update, onExpand, expanded }) {
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "10px" }}>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1d1915", marginBottom: "4px", lineHeight: "1.2" }}>
+          <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1d1915", marginBottom: "4px", lineHeight: "1.2", fontFamily: "'Anthropic Serif', Georgia, 'Times New Roman', serif" }}>
             {update.title}
           </p>
-          <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "#6a645d", marginBottom: "6px" }}>
+          <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "#6a645d", marginBottom: "6px", fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             <span>📅 {update.date}</span>
             <span>🔗 Kasus: #{update.relatedCases}</span>
           </div>
-          <p style={{ margin: "0", fontSize: "11px", color: "#49443f", fontStyle: "italic", lineHeight: "1.4" }}>
+          <p style={{ margin: "0", fontSize: "11px", color: "#49443f", fontStyle: "italic", lineHeight: "1.4", fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             {update.summary}
           </p>
         </div>
@@ -392,30 +394,19 @@ export default function Reports() {
         <div style={{
           paddingLeft: "20px",
           paddingRight: "20px",
-          marginBottom: "28px"
+          marginBottom: "20px"
         }}>
-          <div style={{ marginBottom: "12px" }}>
-            <h2 style={{
-              margin: 0,
-              fontSize: "28px",
-              lineHeight: "1",
-              letterSpacing: "-.05em",
-              fontFamily: "'Anthropic Serif', Georgia, 'Times New Roman', serif",
-              fontWeight: 700,
-              color: "#1f1b17"
-            }}>
-              Reports & Transparency
-            </h2>
-          </div>
-          <p style={{
-            fontSize: "12px",
-            color: "#6a645d",
+          <h2 style={{
             margin: 0,
-            lineHeight: "1.4",
-            fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+            fontSize: "28px",
+            lineHeight: "1",
+            letterSpacing: "-.05em",
+            fontFamily: "'Anthropic Serif', Georgia, 'Times New Roman', serif",
+            fontWeight: 700,
+            color: "#1f1b17"
           }}>
-            Platform pelaporan warga dan transparansi investigasi janji politiker
-          </p>
+            Reports & Transparency
+          </h2>
         </div>
 
         {/* Section 1: Anonymous Reports */}
@@ -454,15 +445,7 @@ export default function Reports() {
             </span>
           </div>
 
-          <p style={{
-            fontSize: "12px",
-            color: "#6a645d",
-            marginBottom: "12px",
-            lineHeight: "1.4",
-            fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-          }}>
-            Laporan masuk dari warga mengenai realisasi janji-janji yang dibuat. Identitas pelapor dijaga kerahasiaannya.
-          </p>
+
 
           {/* Filters */}
           <div style={{
@@ -556,15 +539,7 @@ export default function Reports() {
             </span>
           </div>
 
-          <p style={{
-            fontSize: "12px",
-            color: "#6a645d",
-            marginBottom: "12px",
-            lineHeight: "1.4",
-            fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-          }}>
-            Daftar kasus yang sedang atau sudah ditinjau oleh tim investigasi. Mencakup timeline aktivitas dan bukti-bukti terkumpul.
-          </p>
+
 
           {/* Filter */}
           <div style={{
@@ -640,15 +615,7 @@ export default function Reports() {
             </span>
           </div>
 
-          <p style={{
-            fontSize: "12px",
-            color: "#6a645d",
-            marginBottom: "12px",
-            lineHeight: "1.4",
-            fontFamily: "'Anthropic Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-          }}>
-            Update publik terkait perkembangan investigasi dan hasil penyelidikan terhadap janji-janji yang dilaporkan.
-          </p>
+
 
           {/* Updates List */}
           <div>
